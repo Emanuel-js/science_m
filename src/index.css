@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply antialiased;
+  }
+}
+
+@layer utilities {
+  .animate-glow {
+    animation: glow 3s ease-in-out infinite alternate;
+  }
+}
+
+@keyframes glow {
+  from {
+    filter: brightness(1) blur(0px);
+  }
+  to {
+    filter: brightness(1.2) blur(1px);
+  }
+}
