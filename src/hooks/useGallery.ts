@@ -1,55 +1,72 @@
-import { useState, useMemo } from 'react';
-import type { GalleryItem } from '../types/gallery';
+import { useState, useMemo } from "react";
+import type { GalleryItem } from "../types/gallery";
 
 const galleryData: GalleryItem[] = [
   {
-    id: '1',
-    title: 'Ancient Egyptian Artifacts',
-    description: 'Collection of well-preserved artifacts from ancient Egypt.',
-    category: 'Ancient History',
-    imageUrl: 'https://images.unsplash.com/photo-1562663474-6cbb3eaa4d14?auto=format&fit=crop&q=80',
+    id: "1",
+    title: "Ethiopian Space Science Society",
+    description: "Exhibit on Ethiopia's contributions to space science.",
+    category: "Space Science",
+    imageUrl:
+      "https://www.ethiopiansciencemuseum.et/_nuxt/sky_view_thumbnail.93595e98.jpg",
     metadata: [
-      { label: 'Period', value: '2686-2181 BCE' },
-      { label: 'Origin', value: 'Egypt' },
+      { label: "Established", value: "2024" },
+      { label: "Focus", value: "Space Research" },
     ],
   },
   {
-    id: '2',
-    title: 'Space Exploration',
-    description: 'Interactive exhibit showcasing the history of space exploration.',
-    category: 'Space',
-    imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80',
+    id: "2",
+    title: "Renewable Energy in Ethiopia",
+    description: "Showcase of Ethiopia's renewable energy projects.",
+    category: "Renewable Energy",
+    imageUrl: "https://www.ethiopiansciencemuseum.et/_nuxt/xr.f0769499.jpg",
     metadata: [
-      { label: 'Type', value: 'Interactive' },
-      { label: 'Duration', value: '45 mins' },
+      { label: "Type", value: "Exhibit" },
+      { label: "Projects", value: "Hydropower, Wind, Solar" },
     ],
   },
   {
-    id: '3',
-    title: 'Dinosaur Fossils',
-    description: 'Rare collection of dinosaur fossils from the Jurassic period.',
-    category: 'Natural History',
-    imageUrl: 'https://images.unsplash.com/photo-1519074069444-1ba4fff66d16?auto=format&fit=crop&q=80',
-    metadata: [
-      { label: 'Period', value: 'Jurassic' },
-      { label: 'Age', value: '150M years' },
-    ],
+    id: "3",
+    title: "Ethiopian Innovations",
+    description: "Innovations and technological advancements from Ethiopia.",
+    category: "Technology",
+    imageUrl:
+      "https://www.ethiopiansciencemuseum.et/_nuxt/pm_abiy_ceo_fre.af82acaf.jpg",
+  },
+  {
+    id: "4",
+    title:
+      "PM Abiy’s remarks at Pan African Conference on Artificial Intelligence (AI) 2022",
+    description: "Prime Minister Abiy Ahmed's remarks at the AI conference.",
+    category: "Technology",
+    imageUrl: "",
+    videoUrl: "https://www.youtube.com/watch?v=ztVkqmsc3bk",
+  },
+  {
+    id: "5",
+    title: "ጠቅላይ ሚኒስትር ዐቢይ መርቀው የከፈቱት የሳይንስ ሙዚየም",
+    description: "Prime Minister Abiy Ahmed inaugurates the Science Museum.",
+    category: "Science",
+    imageUrl: "",
+    videoUrl: "https://www.youtube.com/watch?v=mVLD6G-nRIQ&t=11s",
   },
 ];
 
 export function useGallery() {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All');
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const filters = useMemo(() => {
-    const categories = galleryData.map(item => item.category);
-    return ['All', ...new Set(categories)];
+    const categories = galleryData.map((item) => item.category);
+    return ["All", ...new Set(categories)];
   }, []);
 
   const filteredItems = useMemo(() => {
-    return galleryData.filter(item => {
-      const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory;
-      const matchesSearch = item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    return galleryData.filter((item) => {
+      const matchesCategory =
+        selectedCategory === "All" || item.category === selectedCategory;
+      const matchesSearch =
+        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         item.description.toLowerCase().includes(searchQuery.toLowerCase());
       return matchesCategory && matchesSearch;
     });

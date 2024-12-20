@@ -8,4 +8,5 @@ export interface GalleryItem {
     label: string;
     value: string;
   }>;
+  videoUrl?: string;
 }

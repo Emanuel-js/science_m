@@ -1,5 +1,5 @@
-import React from 'react';
-import { Facebook, Twitter, Instagram, Youtube, Mail } from 'lucide-react';
+import React from "react";
+import { Facebook, Twitter, Instagram, Youtube, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -9,13 +9,13 @@ export default function Footer() {
           <div>
             <h3 className="text-white text-lg font-semibold mb-4">Visit Us</h3>
             <address className="not-italic">
-              <p>123 Museum Street</p>
-              <p>City, State 12345</p>
-              <p className="mt-4">Phone: (555) 123-4567</p>
-              <p>Email: info@museum.com</p>
+              <p>Science Museum Street</p>
+              <p>Addis Ababa, Ethiopia</p>
+              <p className="mt-4">Phone: +251 11 123 4567</p>
+              <p>Email: info@ethiopiasciencemuseum.et</p>
             </address>
           </div>
-          
+
           <div>
             <h3 className="text-white text-lg font-semibold mb-4">Hours</h3>
             <ul className="space-y-2">
@@ -24,19 +24,48 @@ export default function Footer() {
               <li className="text-yellow-400">Closed on major holidays</li>
             </ul>
           </div>
-          
+
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4">Quick Links</h3>
+            <h3 className="text-white text-lg font-semibold mb-4">
+              Quick Links
+            </h3>
             <ul className="space-y-2">
-              <li><a href="/visit" className="hover:text-white transition-colors">Plan Your Visit</a></li>
-              <li><a href="/exhibits" className="hover:text-white transition-colors">Current Exhibits</a></li>
-              <li><a href="/events" className="hover:text-white transition-colors">Events Calendar</a></li>
-              <li><a href="/membership" className="hover:text-white transition-colors">Become a Member</a></li>
+              <li>
+                <a href="/visit" className="hover:text-white transition-colors">
+                  Plan Your Visit
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/exhibits"
+                  className="hover:text-white transition-colors"
+                >
+                  Current Exhibits
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/events"
+                  className="hover:text-white transition-colors"
+                >
+                  Events Calendar
+                </a>
+              </li>
+              <li>
+                <a
+                  href="/membership"
+                  className="hover:text-white transition-colors"
+                >
+                  Become a Member
+                </a>
+              </li>
             </ul>
           </div>
-          
+
           <div>
-            <h3 className="text-white text-lg font-semibold mb-4">Newsletter</h3>
+            <h3 className="text-white text-lg font-semibold mb-4">
+              Newsletter
+            </h3>
             <form className="space-y-4">
               <input
                 type="email"
@@ -45,23 +74,34 @@ export default function Footer() {
               />
               <button
                 type="submit"
-                className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors"
+                className="w-full py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors relative"
               >
-                Subscribe
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-orange-500 via-pink-500 to-blue-500 animate-glow" />
+                <div className="relative z-10 text-white">Subscribe</div>
               </button>
             </form>
           </div>
         </div>
-        
+
         <div className="border-t border-gray-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p>&copy; 2024 Museum of Science. All rights reserved.</p>
+            <p>&copy; 2024 Ethiopia Science Museum. All rights reserved.</p>
             <div className="flex space-x-4 mt-4 md:mt-0">
-              <a href="#" className="hover:text-white transition-colors"><Facebook className="w-5 h-5" /></a>
-              <a href="#" className="hover:text-white transition-colors"><Twitter className="w-5 h-5" /></a>
-              <a href="#" className="hover:text-white transition-colors"><Instagram className="w-5 h-5" /></a>
-              <a href="#" className="hover:text-white transition-colors"><Youtube className="w-5 h-5" /></a>
-              <a href="#" className="hover:text-white transition-colors"><Mail className="w-5 h-5" /></a>
+              <a href="#" className="hover:text-white transition-colors">
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                <Twitter className="w-5 h-5" />
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                <Youtube className="w-5 h-5" />
+              </a>
+              <a href="#" className="hover:text-white transition-colors">
+                <Mail className="w-5 h-5" />
+              </a>
             </div>
           </div>
         </div>

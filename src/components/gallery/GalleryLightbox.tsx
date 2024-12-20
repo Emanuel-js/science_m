@@ -1,14 +1,16 @@
-import React from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { X, ChevronLeft, ChevronRight } from 'lucide-react';
-import type { GalleryItem } from '../../types/gallery';
+import { motion, AnimatePresence } from "framer-motion";
+import { X } from "lucide-react";
+import type { GalleryItem } from "../../types/gallery";
 
 interface GalleryLightboxProps {
-  item: GalleryItem | null;
-  onClose: () => void;
+  readonly item: GalleryItem | null;
+  readonly onClose: () => void;
 }
 
-export default function GalleryLightbox({ item, onClose }: GalleryLightboxProps) {
+export default function GalleryLightbox({
+  item,
+  onClose,
+}: GalleryLightboxProps) {
   if (!item) return null;
 
   return (
@@ -31,11 +33,25 @@ export default function GalleryLightbox({ item, onClose }: GalleryLightboxProps)
         <div className="h-full flex items-center justify-center p-4">
           <div className="max-w-4xl w-full">
             <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-              <img
-                src={item.imageUrl}
-                alt={item.title}
-                className="w-full h-full object-contain"
-              />
+              {item.videoUrl ? (
+                <iframe
+                  width="100%"
+                  height="100%"
+                  src={`https://www.youtube.com/embed/${new URL(
+                    item.videoUrl
+                  ).searchParams.get("v")}?autoplay=1`}
+                  title={item.title}
+                  frameBorder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                ></iframe>
+              ) : (
+                <img
+                  src={item.imageUrl}
+                  alt={item.title}
+                  className="w-full h-full object-contain"
+                />
+              )}
             </div>
             <div className="mt-4 text-white">
               <h2 className="text-2xl font-semibold mb-2">{item.title}</h2>

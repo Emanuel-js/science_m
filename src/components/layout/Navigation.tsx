@@ -1,12 +1,10 @@
-import React, { useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import React, { useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export const navigationItems = [
-  { name: 'Exhibits', href: '/exhibits' },
-  { name: 'Events', href: '/events' },
-  { name: 'Visit', href: '/visit' },
-  { name: 'Education', href: '/education' },
-  { name: 'Support', href: '/support' },
+  { name: "Exhibits", href: "/exhibits" },
+  { name: "Events", href: "/events" },
+  { name: "Visit", href: "/visit" },
 ];
 
 interface NavigationProps {
@@ -17,12 +15,12 @@ interface NavigationProps {
 export default function Navigation({ isOpen, onClose }: NavigationProps) {
   useEffect(() => {
     if (isOpen) {
-      document.body.style.overflow = 'hidden';
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     }
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isOpen]);
 
@@ -39,10 +37,10 @@ export default function Navigation({ isOpen, onClose }: NavigationProps) {
             onClick={onClose}
           />
           <motion.nav
-            initial={{ x: '100%' }}
+            initial={{ x: "100%" }}
             animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'tween', duration: 0.3 }}
+            exit={{ x: "100%" }}
+            transition={{ type: "tween", duration: 0.3 }}
             className="fixed right-0 top-0 bottom-0 w-full max-w-sm bg-white dark:bg-gray-900 z-50 flex flex-col"
           >
             <div className="flex-1 overflow-y-auto py-20 px-6">
