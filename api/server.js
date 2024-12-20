@@ -114,6 +114,10 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
+app.get("/api", (req, res) => {
+  res.send("API is running");
+});
+
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
