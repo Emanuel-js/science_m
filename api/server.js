@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import axios from "axios";
+import path from "path";
 
 // Load environment variables from .env file
 dotenv.config();
@@ -20,6 +21,9 @@ app.use(express.json());
 
 // Handle preflight requests for all routes
 app.options("*", cors());
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, "..", "dist")));
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
@@ -114,8 +118,9 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
-app.get("/api", (req, res) => {
-  res.send("API is running");
+// Serve the React app for all other routes
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "..", "dist", "index.html"));
 });
 
 const PORT = process.env.PORT || 5001;
