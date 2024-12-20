@@ -22,8 +22,11 @@ app.use(express.json());
 // Handle preflight requests for all routes
 app.options("*", cors());
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, "..", "dist")));
+import { fileURLToPath } from "url";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+app.use(express.static(path.join(__dirname, "../dist")));
 
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 
@@ -122,8 +125,7 @@ app.post("/api/chat", async (req, res) => {
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "..", "dist", "index.html"));
 });
-
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5002; // Change 5001 to 5002 or any available port
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
