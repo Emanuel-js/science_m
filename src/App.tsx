@@ -7,7 +7,6 @@ import LoadingSpinner from "./components/loading/LoadingSpinner";
 import PageTransition from "./components/loading/PageTransition";
 import ChatBot from "./components/chat/ChatBot";
 import NewsDetail from "./components/news/NewsDetail";
-import AdBanner from "./components/home/AdBanner";
 
 // Lazy load pages
 const HomePage = React.lazy(() => import("./pages/HomePage"));

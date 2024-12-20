@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/server.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/server.js"
+    }
+  ],
+  "env": {
+    "GEMINI_API_KEY": "AIzaSyCtev64cGeB6YNvq1eguoXLI7BXzTZonlI",
+    "PORT": "5001"
+  }
+}
