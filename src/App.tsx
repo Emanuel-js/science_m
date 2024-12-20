@@ -7,6 +7,7 @@ import LoadingSpinner from "./components/loading/LoadingSpinner";
 import PageTransition from "./components/loading/PageTransition";
 import ChatBot from "./components/chat/ChatBot";
 import NewsDetail from "./components/news/NewsDetail";
+import AdBanner from "./components/home/AdBanner";
 
 // Lazy load pages
 const HomePage = React.lazy(() => import("./pages/HomePage"));
@@ -18,27 +19,30 @@ const EventDetailPage = React.lazy(() => import("./pages/EventDetailPage"));
 
 export default function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-white dark:bg-gray-900 flex flex-col">
-        <Header />
-        <Suspense fallback={<LoadingSpinner />}>
-          <AnimatePresence mode="wait">
-            <PageTransition>
-              <Routes>
-                <Route path="/" element={<HomePage />} />
-                <Route path="/exhibits" element={<ExhibitsPage />} />
-                <Route path="/events" element={<EventsPage />} />
-                <Route path="/events/:id" element={<EventDetailPage />} />
-                <Route path="/visit" element={<VisitPage />} />
-                <Route path="/membership" element={<MembershipPage />} />
-                <Route path="/read-more/:title" element={<NewsDetail />} />
-              </Routes>
-            </PageTransition>
-          </AnimatePresence>
-        </Suspense>
-        <Footer />
-        <ChatBot />
-      </div>
-    </Router>
+    <>
+      {/* <AdBanner /> */}
+      <Router>
+        <div className="min-h-screen bg-white dark:bg-gray-900 flex flex-col">
+          <Header />
+          <Suspense fallback={<LoadingSpinner />}>
+            <AnimatePresence mode="wait">
+              <PageTransition>
+                <Routes>
+                  <Route path="/" element={<HomePage />} />
+                  <Route path="/exhibits" element={<ExhibitsPage />} />
+                  <Route path="/events" element={<EventsPage />} />
+                  <Route path="/events/:id" element={<EventDetailPage />} />
+                  <Route path="/visit" element={<VisitPage />} />
+                  <Route path="/membership" element={<MembershipPage />} />
+                  <Route path="/read-more/:title" element={<NewsDetail />} />
+                </Routes>
+              </PageTransition>
+            </AnimatePresence>
+          </Suspense>
+          <Footer />
+          <ChatBot />
+        </div>
+      </Router>
+    </>
   );
 }

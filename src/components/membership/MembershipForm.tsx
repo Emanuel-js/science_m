@@ -147,7 +147,7 @@ export default function MembershipForm() {
 
       <button
         type="submit"
-        className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+        className="w-full bg-gradient-to-r from-orange-500 via-pink-500 to-blue-500 text-white py-3 px-6 rounded-lg font-semibold hover:opacity-90 transition-colors"
       >
         Complete Registration
       </button>

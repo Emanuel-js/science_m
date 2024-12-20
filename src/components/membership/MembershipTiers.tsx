@@ -50,7 +50,7 @@ export default function MembershipTiers() {
             key={tier.name}
             className={`rounded-2xl p-8 ${
               tier.featured
-                ? "bg-blue-600 text-white ring-4 ring-blue-600 ring-offset-2"
+                ? "bg-gradient-to-r from-orange-500 via-pink-500 to-blue-500 text-white ring-4 ring-offset-2"
                 : "bg-white dark:bg-gray-800"
             }`}
           >
@@ -95,7 +95,7 @@ export default function MembershipTiers() {
               className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors ${
                 tier.featured
                   ? "bg-white text-blue-600 hover:bg-blue-50"
-                  : "bg-blue-600 text-white hover:bg-blue-700"
+                  : "bg-gradient-to-r from-orange-500 via-pink-500 to-blue-500 text-white hover:opacity-90"
               }`}
             >
               Become a {tier.name} Member
