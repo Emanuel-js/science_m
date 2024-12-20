@@ -6,9 +6,12 @@ export default defineConfig({
   build: {
     outDir: "dist",
   },
-  base: "/",
+  base: "./",
   plugins: [react()],
   optimizeDeps: {
     exclude: ["lucide-react"],
+  },
+  define: {
+    __APP_ENV__: process.env.GEMINI_API_KEY,
   },
 });
